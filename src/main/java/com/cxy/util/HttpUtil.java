@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@SuppressWarnings({ "unused", "deprecation" })
+@SuppressWarnings({ "deprecation" })
 public class HttpUtil {
 	private static PoolingHttpClientConnectionManager connMgr;
 	private static RequestConfig requestConfig;
