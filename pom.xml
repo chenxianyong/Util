@@ -5,37 +5,39 @@
   <version>0.0.1-SNAPSHOT</version>
   
   <dependencies>
+  	<!-- sendEmail -->
     <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
-<dependency>
-    <groupId>javax.mail</groupId>
-    <artifactId>mail</artifactId>
-    <version>1.4.1</version>
-</dependency>
+	<dependency>
+	    <groupId>javax.mail</groupId>
+	    <artifactId>mail</artifactId>
+	    <version>1.4.1</version>
+	</dependency>
 
-<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
-<dependency>
-    <groupId>com.google.zxing</groupId>
-    <artifactId>core</artifactId>
-    <version>3.4.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.google.zxing/javase -->
-<dependency>
-    <groupId>com.google.zxing</groupId>
-    <artifactId>javase</artifactId>
-    <version>3.4.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.8.0-beta4</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
-<dependency>
-    <groupId>commons-lang</groupId>
-    <artifactId>commons-lang</artifactId>
-    <version>2.6</version>
-</dependency>
+  	<!-- QRCode -->
+	<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+	<dependency>
+	    <groupId>com.google.zxing</groupId>
+	    <artifactId>core</artifactId>
+	    <version>3.4.0</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.google.zxing/javase -->
+	<dependency>
+	    <groupId>com.google.zxing</groupId>
+	    <artifactId>javase</artifactId>
+	    <version>3.4.0</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>1.8.0-beta4</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+	<dependency>
+	    <groupId>commons-lang</groupId>
+	    <artifactId>commons-lang</artifactId>
+	    <version>2.6</version>
+	</dependency>
 
   </dependencies>
   
