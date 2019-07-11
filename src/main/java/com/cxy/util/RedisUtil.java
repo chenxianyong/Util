@@ -17,8 +17,10 @@ public class RedisUtil {
 	// 连接超时的时间
 	private static int TIMEOUT = 10000;
 
-	private static JedisPool jedisPool;
+	/*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑以上配置均应在配置中心配置↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/
 
+	private static JedisPool jedisPool;
+	
 	/**
 	 * @Description 获取操作redis的Jedis
 	 * @author XianyongChen
