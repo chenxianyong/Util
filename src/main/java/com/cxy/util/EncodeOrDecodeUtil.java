@@ -2,6 +2,13 @@ package com.cxy.util;
 
 import java.security.MessageDigest;
 
+import javax.crypto.KeyGenerator;
+import javax.crypto.Mac;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.apache.commons.codec.binary.Hex;
+
 import com.cloopen.rest.sdk.utils.encoder.BASE64Decoder;
 import com.cloopen.rest.sdk.utils.encoder.BASE64Encoder;
 
@@ -19,10 +26,10 @@ public class EncodeOrDecodeUtil {
 		String result = "";
 		switch (encodeManner) {
 		case 1:// MD5
-			result = stringEncode("MD5", str);
+			result = md5Encode(str);
 			break;
 		case 2:// SHA1
-			result = stringEncode("SHA1", str);
+			result = shaEncode(str);
 			break;
 		case 3:// BASE64
 			result = base64Encode(str);
@@ -41,11 +48,11 @@ public class EncodeOrDecodeUtil {
 	 * @param inStr        需要加密的字符串
 	 * @return 加密后的字符串(MD5:32位;sha1:40位。
 	 */
-	static String stringEncode(String encodeManner, String inStr) {
+	static String md5Encode(String inStr) {
 
 		MessageDigest md5 = null;
 		try {
-			md5 = MessageDigest.getInstance(encodeManner);
+			md5 = MessageDigest.getInstance("MD5");
 		} catch (Exception e) {
 			System.out.println(e.toString());
 			e.printStackTrace();
@@ -86,7 +93,7 @@ public class EncodeOrDecodeUtil {
 	 * @param base64Str 需要解密的字符串
 	 * @return 解密后的字符串
 	 */
-	static String decodeBase64Str(String base64Str) {
+	static String base64Decode(String base64Str) {
 		String result = "";
 		try {
 			BASE64Decoder decoder = new BASE64Decoder();
@@ -120,5 +127,62 @@ public class EncodeOrDecodeUtil {
 		}
 
 	}
+
+	/**
+	 * @Description SHA加密
+	 * @author XianyongChen
+	 * @date 2019年7月12日
+	 * @param str 要加密的字符串
+	 * @return 加密后的字符串
+	 */
+	public static String shaEncode(String str) {
+		if (str == null || str.length() == 0) {
+			return null;
+		}
+		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+		try {
+			MessageDigest mdTemp = MessageDigest.getInstance("SHA");
+			mdTemp.update(str.getBytes("UTF-8"));
+
+			byte[] md = mdTemp.digest();
+			int j = md.length;
+			char buf[] = new char[j * 2];
+			int k = 0;
+			for (int i = 0; i < j; i++) {
+				byte byte0 = md[i];
+				buf[k++] = hexDigits[byte0 >>> 4 & 0xf];
+				buf[k++] = hexDigits[byte0 & 0xf];
+			}
+			return new String(buf);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+
+	/**
+	 * @Description HMAC加密
+	 * @author XianyongChen
+	 * @date 2019年7月12日
+	 * @param str 要加密的字符串
+	 * @return 加密后的字符串
+	 */
+	public static String hmacEncode(String str) {
+		String result = "";
+		try {
+			KeyGenerator keyGenerator = KeyGenerator.getInstance("HmacMD5");// 初始化KeyGenerator
+			SecretKey secretKey = keyGenerator.generateKey();// 产生秘钥
+			byte[] key = secretKey.getEncoded();// 获得秘钥(默认生成)
+			SecretKey secretKey2 = new SecretKeySpec(key, "HmacMD5");// 还原秘钥
+			Mac mac = Mac.getInstance(secretKey2.getAlgorithm());// 实例化mac
+			// 初始化mac
+			mac.init(secretKey);
+			byte[] hmacMD5Bytes = mac.doFinal(str.getBytes());
+			result = Hex.encodeHexString(hmacMD5Bytes);
+		} catch (Exception e) {
+		}
+		return result;
+	}
+
 
 }
