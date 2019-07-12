@@ -18,40 +18,11 @@ public class EncodeOrDecodeUtil {
 	 * @Description 字符串加密
 	 * @author XianyongChen
 	 * @date 2019年7月12日
-	 * @param encodeManner 加密方式
-	 * @param str 需要加密的字符串
-	 * @return 加密后的字符串
-	 */
-	public static String encode(int encodeManner, String str) {
-		String result = "";
-		switch (encodeManner) {
-		case 1:// MD5
-			result = md5Encode(str);
-			break;
-		case 2:// SHA1
-			result = shaEncode(str);
-			break;
-		case 3:// BASE64
-			result = base64Encode(str);
-			break;
-		case 4://HMAC
-			result = hmacEncode(str);
-			break;
-		default:
-			break;
-		}
-		return result;
-	}
-
-	/**
-	 * @Description 字符串加密
-	 * @author XianyongChen
-	 * @date 2019年7月12日
 	 * @param encodeManner 加密方式，参考枚举EncodeManner
-	 * @param inStr 需要加密的字符串
+	 * @param inStr        需要加密的字符串
 	 * @return 加密后的字符串(MD5:32位;sha1:40位。
 	 */
-	static String md5Encode(String inStr) {
+	public static String md5Encode(String inStr) {
 
 		MessageDigest md5 = null;
 		try {
@@ -84,7 +55,7 @@ public class EncodeOrDecodeUtil {
 	 * @param str 需要加密的字符串
 	 * @return 加密后的字符串
 	 */
-	static String base64Encode(String str) {
+	public static String base64Encode(String str) {
 		BASE64Encoder encoder = new BASE64Encoder();
 		return encoder.encode(str.getBytes());
 	}
@@ -96,7 +67,7 @@ public class EncodeOrDecodeUtil {
 	 * @param base64Str 需要解密的字符串
 	 * @return 解密后的字符串
 	 */
-	static String base64Decode(String base64Str) {
+	public static String base64Decode(String base64Str) {
 		String result = "";
 		try {
 			BASE64Decoder decoder = new BASE64Decoder();
@@ -141,26 +112,23 @@ public class EncodeOrDecodeUtil {
 	}
 
 	/**
-	 * @author : XianyongChen
-	 * @data : 2019年7月12日 - 下午4:38:31
-	 * @description :加密方式
+	 * @Description SHA256加密
+	 * @author XianyongChen
+	 * @date 2019年7月12日
+	 * @param str 要加密的字符串
+	 * @return 加密后的字符串
 	 */
-	public static enum EncodeManner {
-		MD5(1), SHA1(2), BASE64(3), HMAC(4);
-		int index;
-
-		EncodeManner(int index) {
-			this.index = index;
+	public static String String2SHA256(String str) {
+		MessageDigest messageDigest;
+		String encdeStr = "";
+		try {
+			messageDigest = MessageDigest.getInstance("SHA-256");
+			byte[] hash = messageDigest.digest(str.getBytes("UTF-8"));
+			encdeStr = Hex.encodeHexString(hash);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-		public int getIndex() {
-			return index;
-		}
-
-		public void setIndex(int index) {
-			this.index = index;
-		}
-
+		return encdeStr;
 	}
 
 	/**
@@ -186,5 +154,4 @@ public class EncodeOrDecodeUtil {
 		}
 		return result;
 	}
-
 }
