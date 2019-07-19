@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 public class ImageUtil {
 	 /**
      * @Description 添加图片水印操作(物理存盘,自定义格式)
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param imgPath  待处理图片
      * @param markPath 水印图片
@@ -34,7 +34,7 @@ public class ImageUtil {
     }
     /**
      * @Description 添加图片水印操作,返回BufferedImage对象
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param imgPath  待处理图片
      * @param markPath 水印图片
@@ -64,7 +64,7 @@ public class ImageUtil {
     }
     /**
      * @Description 添加文字水印操作(物理存盘,自定义格式)
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param imgPath  待处理图片
      * @param text     水印文字
@@ -87,7 +87,7 @@ public class ImageUtil {
     }
     /**
      * @Description 添加文字水印操作,返回BufferedImage对象
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param imgPath 待处理图片
      * @param text    水印文字
@@ -120,7 +120,7 @@ public class ImageUtil {
     }
     /**
      * @Description 图片格式转化操作(文件物理存盘)
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param imgPath  原始图片存放地址
      * @param format   待转换的格式 jpeg,gif,png,bmp等
@@ -136,7 +136,7 @@ public class ImageUtil {
     }
     /**
      * @Description 图片格式转化操作返回BufferedImage对象
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param bufferedImag BufferedImage图片转换对象
      * @param format       待转换的格式 jpeg,gif,png,bmp等

@@ -12,45 +12,53 @@ import org.apache.commons.codec.binary.Hex;
 import com.cloopen.rest.sdk.utils.encoder.BASE64Decoder;
 import com.cloopen.rest.sdk.utils.encoder.BASE64Encoder;
 
+/**
+ * @author ChenXianyong
+ * @data 2019年7月19日 下午2:05:44
+ * @description 加密解密
+ */
 public class EncodeOrDecodeUtil {
 
 	/**
-	 * @Description 字符串加密
-	 * @author XianyongChen
+	 * @author ChenXianyong
+	 * @description MD5加密
 	 * @date 2019年7月12日
-	 * @param encodeManner 加密方式，参考枚举EncodeManner
-	 * @param inStr        需要加密的字符串
-	 * @return 加密后的字符串(MD5:32位;sha1:40位。
+	 * @param inStr 需要加密的字符串
+	 * @return 加密后的字符串
 	 */
-	public static String md5Encode(String inStr) {
+	public static String md5Encode(String str) {
+		return md5Encode(str.getBytes());
+	}
 
-		MessageDigest md5 = null;
-		try {
-			md5 = MessageDigest.getInstance("MD5");
-		} catch (Exception e) {
-			System.out.println(e.toString());
-			e.printStackTrace();
-			return "";
-		}
-		char[] charArray = inStr.toCharArray();
-		byte[] byteArray = new byte[charArray.length];
+	/**
+	 * @author ChenXianyong
+	 * @description MD5加密
+	 * @data 2019年7月19日
+	 * @param bytes byte数组
+	 * @return 加密后的字符串
+	 */
+	public static String md5Encode(byte[] bytes) {
+		MessageDigest md5 = MD5.get();
+		md5.reset();
+		md5.update(bytes);
+		byte[] digest = md5.digest();
+		return encodeHex(digest);
+	}
 
-		for (int i = 0; i < charArray.length; i++)
-			byteArray[i] = (byte) charArray[i];
-		byte[] md5Bytes = md5.digest(byteArray);
-		StringBuffer hexValue = new StringBuffer();
-		for (int i = 0; i < md5Bytes.length; i++) {
-			int val = ((int) md5Bytes[i]) & 0xff;
-			if (val < 16)
-				hexValue.append("0");
-			hexValue.append(Integer.toHexString(val));
-		}
-		return hexValue.toString();
+	/**
+	 * @author ChenXianyong
+	 * @description MD5加密
+	 * @data 2019年7月19日
+	 * @param array long类型的数组
+	 * @return 加密后的字符串
+	 */
+	public static String md5Encode(long[] array) {
+		return md5Encode(long2Byte(array));
 	}
 
 	/**
 	 * @Description BASE64加密
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月12日
 	 * @param str 需要加密的字符串
 	 * @return 加密后的字符串
@@ -62,7 +70,7 @@ public class EncodeOrDecodeUtil {
 
 	/**
 	 * @Description BASE64解密
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月12日
 	 * @param base64Str 需要解密的字符串
 	 * @return 解密后的字符串
@@ -81,7 +89,7 @@ public class EncodeOrDecodeUtil {
 
 	/**
 	 * @Description SHA加密
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月12日
 	 * @param str 要加密的字符串
 	 * @return 加密后的字符串
@@ -113,7 +121,7 @@ public class EncodeOrDecodeUtil {
 
 	/**
 	 * @Description SHA256加密
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月12日
 	 * @param str 要加密的字符串
 	 * @return 加密后的字符串
@@ -133,7 +141,7 @@ public class EncodeOrDecodeUtil {
 
 	/**
 	 * @Description HMAC加密
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月12日
 	 * @param str 要加密的字符串
 	 * @return 加密后的字符串
@@ -154,4 +162,46 @@ public class EncodeOrDecodeUtil {
 		}
 		return result;
 	}
+
+	/**
+	 * ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓--下面是私有方法--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	 */
+
+	private static ThreadLocal<MessageDigest> MD5 = new ThreadLocal<MessageDigest>() {
+		@Override
+		protected MessageDigest initialValue() {
+			try {
+				return MessageDigest.getInstance("MD5");
+			} catch (Exception e) {
+			}
+			return null;
+		}
+	};
+
+	private static String encodeHex(byte[] bytes) {
+		StringBuilder buf = new StringBuilder(bytes.length + bytes.length);
+		for (int i = 0; i < bytes.length; i++) {
+			if (((int) bytes[i] & 0xff) < 0x10) {
+				buf.append("0");
+			}
+			buf.append(Long.toString((int) bytes[i] & 0xff, 16));
+		}
+		return buf.toString();
+	}
+
+	private static byte[] long2Byte(long[] longArray) {
+		byte[] byteArray = new byte[longArray.length * 8];
+		for (int i = 0; i < longArray.length; i++) {
+			byteArray[0 + 8 * i] = (byte) (longArray[i] >> 56);
+			byteArray[1 + 8 * i] = (byte) (longArray[i] >> 48);
+			byteArray[2 + 8 * i] = (byte) (longArray[i] >> 40);
+			byteArray[3 + 8 * i] = (byte) (longArray[i] >> 32);
+			byteArray[4 + 8 * i] = (byte) (longArray[i] >> 24);
+			byteArray[5 + 8 * i] = (byte) (longArray[i] >> 16);
+			byteArray[6 + 8 * i] = (byte) (longArray[i] >> 8);
+			byteArray[7 + 8 * i] = (byte) (longArray[i] >> 0);
+		}
+		return byteArray;
+	}
+
 }

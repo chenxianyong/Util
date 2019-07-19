@@ -59,7 +59,7 @@ public class QRCodeUtil {
     }
     /**
      * @Description 生成二维码（无LOGO）
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param content  内容
      * @param destPath 存储地址
@@ -88,7 +88,7 @@ public class QRCodeUtil {
     }
     /**
      * @Description 创建二维码
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param content 内容
      * @param logo    LOGO地址
@@ -120,7 +120,7 @@ public class QRCodeUtil {
     }
     /**
      * @Description 二维码中插入LOGO
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param source 二维码图片
      * @param logo   LOGO图片地址
@@ -172,7 +172,7 @@ public class QRCodeUtil {
     }
     /**
      * @Description 解析二维码
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param path 二维码图片地址
      * @return 内容
@@ -182,7 +182,7 @@ public class QRCodeUtil {
     }
     /**
      * @Description 解析二维码
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月9日
      * @param file 二维码图片文件
      * @return 内容

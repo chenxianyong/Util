@@ -24,7 +24,7 @@ public class IdDeviceUtil {
     }
     /**
      * @Description 生成id
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @param idType
      * @return
@@ -107,7 +107,7 @@ public class IdDeviceUtil {
     }
     /**
      * @Description 1562581287198
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @return
      */

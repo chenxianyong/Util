@@ -23,7 +23,7 @@ public class RedisUtil {
 	
 	/**
 	 * @Description 获取操作redis的Jedis
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param ip            redis地址
 	 * @param port          redis端口号
@@ -50,7 +50,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 关闭jedis
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param jedis
 	 */
@@ -60,7 +60,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 根据key设置
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key   键
 	 * @param value 值
@@ -78,7 +78,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 根据key获取
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key 键
 	 * @return String类型的值
@@ -92,7 +92,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 判断key是否存在
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key 键
 	 * @return 是否存在
@@ -106,7 +106,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 递增
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key 键
 	 * @return 递增后的值
@@ -126,7 +126,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 按增量增加
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key   键
 	 * @param value 增量
@@ -147,7 +147,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 递减
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key
 	 * @return 递减后的值，如不存在，或值<=0，则直接返回0并将key的值设置为0
@@ -172,7 +172,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 按减量减
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key  键
 	 * @param decr 减量
@@ -198,7 +198,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 为key设置有效时间
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key     键
 	 * @param seconds 有效时间（以秒为单位，XX秒后过期 ==>> 有效期）
@@ -216,7 +216,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 为key设置过期时间（此方法暂未验证）
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key      键
 	 * @param unixTime 时间戳 （到这个时间过期 ==>> 有效期至）
@@ -234,7 +234,7 @@ public class RedisUtil {
 	
 	/**
 	 * @Description 删除key
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key 键
 	 * @return 是否成功
@@ -254,7 +254,7 @@ public class RedisUtil {
 
 	/**
 	 * @Description 查询key的剩余有效时间
-	 * @author XianyongChen
+	 * @author ChenXianyong
 	 * @date 2019年7月11日
 	 * @param key 键
 	 * @return 以秒为单位的剩余时间

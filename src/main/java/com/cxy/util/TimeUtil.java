@@ -13,7 +13,7 @@ import com.google.common.collect.Range;
 public class TimeUtil {
 	/**
      * @Description 将制定日期转换成指定格式
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @param date       日期
      * @param formatDate 格式（yyyy-MM-dd HH:mm:ss）
@@ -27,7 +27,7 @@ public class TimeUtil {
     }
     /**
      * @Description 获取某一天的开始时间的时间戳
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @param days 天数，0表示当天，负数为多少天之前，正数为多少天之后
      * @return 时间戳
@@ -37,7 +37,7 @@ public class TimeUtil {
     }
     /**
      * @Description 获取本周周一的时间戳
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @return 时间戳
      */
@@ -48,7 +48,7 @@ public class TimeUtil {
     }
     /**
      * @Description 当前时间距离今天结束剩余的时间
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @return 毫秒
      */
@@ -63,7 +63,7 @@ public class TimeUtil {
     }
     /**
      * @Description 获取当天几点几分的时间戳
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @param hour   小时
      * @param minute 分钟
@@ -77,7 +77,7 @@ public class TimeUtil {
     }
     /**
      * @Description 获取当前的小时
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @return 小时（24小时制）
      */
@@ -86,7 +86,7 @@ public class TimeUtil {
     }
     /**
      * @Description 将时间戳转成指定格式的时间
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @param timestamp  时间戳
      * @param formatDate 格式
@@ -100,7 +100,7 @@ public class TimeUtil {
     }
     /**
      * @Description 获取当天的开始时间和结束时间
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @param localDate
      * @return 时间戳

@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage;
 
 public class SendEmailUtil {
 	 /**
-     * @author : XianyongChen
+     * @author : ChenXianyong
      * @data : 2019年7月5日 - 下午5:43:19
      * @description :
      */
@@ -30,7 +30,7 @@ public class SendEmailUtil {
     }
     /**
      * @Description 发送
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @param context 邮件内容
      * @param title   邮件主题
@@ -122,7 +122,7 @@ public class SendEmailUtil {
     }
     /**
      * @Description 创建邮件
-     * @author XianyongChen
+     * @author ChenXianyong
      * @date 2019年7月8日
      * @param context 邮件内容
      * @param title   邮件主题
