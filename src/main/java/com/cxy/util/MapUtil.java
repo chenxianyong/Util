@@ -19,8 +19,8 @@ public class MapUtil {
 	 * @param map
 	 * @return Map<String, List<String>>
 	 */
-	public static Map<String, List<String>> reversalMap(Map<String, String> map) {
+/*	public static Map<String, List<String>> reversalMap(Map<String, String> map) {
 		return map.entrySet().stream().collect(
 				Collectors.groupingBy(Map.Entry::getValue, Collectors.mapping(Map.Entry::getKey, Collectors.toList())));
-	}
+	}*/
 }
